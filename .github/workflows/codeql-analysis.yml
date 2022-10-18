@@ -6,8 +6,9 @@ on:
   pull_request:
     # The branches below must be a subset of the branches above
     branches: [master]
-  schedule:
-    - cron: '0 17 * * 4'
+  workflow_dispatch:
+ # schedule:
+ #   - cron: '0 17 * * 4'
 
 permissions:
   contents: read
@@ -36,7 +37,7 @@ jobs:
     - name: Initialize CodeQL
       uses: github/codeql-action/init@v2
       with:
-        queries: +security-extended
+        queries: security-and-quality
       # Override language selection by uncommenting this and choosing your languages
       # with:
       #   languages: go, javascript, csharp, python, cpp, java
